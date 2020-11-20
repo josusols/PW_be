@@ -1,0 +1,6 @@
+{
+    "watch": ["apis"],
+    "ext": "js",
+    "ignore": ["apis/public"],
+    "exec": ""
+}
