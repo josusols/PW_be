@@ -14,17 +14,19 @@ exports.insertarPelicula =  async function addPeliculas(oPelicula){
         oPelicula)
         .then( pelicula => {
             return Pelicula.find( { _id: pelicula._id }, null, { limit: 1 })
+            .then(peliculaObj => {
+                //console.log(peliculaObj[0]);
+                return peliculaObj[0];
+            })
             
         })
 }
 
 exports.modificarPelicula = async function updatePeliculas(oPelicula) {
-    return Pelicula.findByIdAndUpdate( oPelicula._id, { ...oPelicula }, (error, data) => {
-        if(error){
-            throw error;
-        } else {
-            return data
-        }
+    return Pelicula.findByIdAndUpdate( oPelicula._id, { ...oPelicula })
+    .then(peliculaObj => {
+        //console.log(peliculaObj[0]);
+        return peliculaObj[0];
     })
 }
 
