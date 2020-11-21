@@ -2,15 +2,15 @@ const express = require('express');
 const redis = require('redis');
 
 var router = express.Router();
-const client = redis.createClient(6379,'localhost');
+//const client = redis.createClient(6379,'localhost');
 
 var mongo_Pelicula = require('../controllers/Peliculas.controller');
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
-    
+    /*
     try {
-        /*const peliculas = await contactDao.getAll();*/
+        /*const peliculas = await contactDao.getAll();
 
         // key to store results in Redis store
         const peliculasRedisKey = 'all:peliculas';
@@ -42,11 +42,11 @@ router.get('/', async (req, res, next) => {
             error: err.message,
         });
     }
-    
+    */
 
-   //const actualPeliculas = await mongo_Pelicula.obtenerPeliculas();
+   const actualPeliculas = await mongo_Pelicula.obtenerPeliculas();
 
-   //return res.status(200).json(actualPeliculas);
+   return res.status(200).json(actualPeliculas);
 
     
 });
